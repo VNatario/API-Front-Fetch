@@ -59,7 +59,21 @@ function updateUser(updatedUser, id) {
     .catch((e) => console.error(e));
 }
 
+//DELETE - DELETE USERS BY ID
+function deleteUser(id) {
+  fetch(`${url}/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => (alertAPI.textContent = data))
+    .catch((e) => console.error(e));
+}
+
 getUsers();
 getUser(2);
-// addUser(newUser);
+//addUser(newUser);
 // updateUser(updatedUser, 2);
+deleteUser(3);
